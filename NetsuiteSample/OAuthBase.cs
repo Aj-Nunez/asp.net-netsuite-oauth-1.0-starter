@@ -15,6 +15,13 @@ namespace NetsuiteSample
 			HMACSHA1
 		}
 
+		private static readonly Dictionary<SignatureTypes, string> SignatureTypeNames = new Dictionary<SignatureTypes, string>()
+		{
+			{ SignatureTypes.HMACSHA1, "HMAC-SHA1" },
+			{ SignatureTypes.HMACSHA256, "HMAC-SHA256" },
+			{ SignatureTypes.PLAINTEXT, "PLAINTEXT" }
+		};
+
 		/// <summary>
 		/// Provides an internal structure to sort the query parameter
 		/// </summary>
@@ -325,7 +332,7 @@ namespace NetsuiteSample
 			header += "oauth_signature=\"" + signature + "\",";
 			header += "oauth_version=\"1.0\",";
 			header += "oauth_nonce=\"" + nonce + "\",";
-			header += "oauth_signature_method=\"HMAC-SHA256\",";
+			header += "oauth_signature_method=\"" + SignatureTypeNames.GetValueOrDefault(signatureMethod) + "\",";
 			header += "oauth_consumer_key=\"" + consumerKey + "\",";
 			header += "oauth_token=\"" + token + "\",";
 			header += "oauth_timestamp=\"" + time + "\",";
