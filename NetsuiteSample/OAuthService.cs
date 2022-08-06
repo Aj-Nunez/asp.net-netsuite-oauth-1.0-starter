@@ -24,7 +24,8 @@ namespace NetsuiteSample
                 Headers =
                 {
                     { "Authorization", header }
-                }
+                },
+                Content = message.Content
             };
         }
     }
