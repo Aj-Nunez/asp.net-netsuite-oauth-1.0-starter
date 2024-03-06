@@ -21,17 +21,7 @@ namespace NetsuiteSample
         public async Task<TResponse> GetAsync<TResponse>(IEnumerable<KeyValuePair<string, string>> args = null)
         {
             var client = _http.CreateClient("netsuite");
-
-            var url = "https://" + _options.AccountId + ".restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=" + _options.ScriptId + "&deploy=" + _options.DeploymentId;
-
-            if (args != null)
-            {
-                foreach (var query in args)
-                {
-                    url += "&" + query.Key + "=" + query.Value;
-                }
-            }
-
+            var url = "https://3469472-sb1.suitetalk.api.netsuite.com/services/rest/record/v1/customer/227";
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri(url),

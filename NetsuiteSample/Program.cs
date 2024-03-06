@@ -29,7 +29,7 @@ namespace NetsuiteSample
                     var parameters = new Dictionary<string, string>
                         {
                             { "method", "getContact" },
-                            { "contactId", "5" }
+                            { "contactId", "336" }
                         };
 
                     var x = await ns.GetAsync<string>(parameters);
